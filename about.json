@@ -1,0 +1,30 @@
+{
+  "name": "Glacier Theme",
+  "component": false,
+  "license_url": null,
+  "about_url": null,
+  "authors": null,
+  "theme_version": null,
+  "minimum_discourse_version": null,
+  "maximum_discourse_version": null,
+  "assets": {},
+  "color_schemes": {
+    "Glacier": {
+      "primary": "121212",
+      "secondary": "ffffff",
+      "tertiary": "4e66df",
+      "quaternary": "e45735",
+      "header_background": "ffffff",
+      "header_primary": "1a1a1a",
+      "selected": "dbdfff",
+      "hover": "e5e8ff",
+      "highlight": "ffff4d",
+      "danger": "ff2e2e",
+      "success": "090",
+      "love": "fa6c8d",
+      "tertiary-med-or-tertiary": "595bca"
+    }
+  },
+  "modifiers": {},
+  "learn_more": "https://meta.discourse.org/t/beginners-guide-to-using-discourse-themes/91966"
+}
