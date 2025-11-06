@@ -1,0 +1,37 @@
+@if #{schemeType()} == dark {
+  :root {
+    --header_background: #2f3039bd!important;
+    --header_primary-low-mid: rgb(197 197 223);
+    --primary-low: rgb(42 43 52);
+  }
+  .d-header-icons .d-icon{
+    color: rgb(129 127 255 / 84%);/* こっちはダークモード用だ、かえとけ */
+  }
+  .search-menu .search-input, .search-menu-container .search-input {
+    box-shadow: 0px 0px 20px 8px rgb(81 83 102 / 30%);
+  }
+    .sidebar-wrapper {
+  background: #1e1f22!important;
+}
+.sidebar-footer-wrapper {
+  background: #1e1f22!important;
+}
+} @else {
+  :root {
+     --header_background: #8391ff5e!important;
+     --header_primary-low-mid: rgb(155 153 255);
+     --primary-low: rgb(225 226 240);
+  }
+  .d-header-icons .d-icon{
+    color: rgb(129 127 255 / 84%);
+  }
+  .search-menu .search-input, .search-menu-container .search-input {
+    box-shadow: 0px 0px 20px 8px rgba(180, 189, 255, 0.30);
+  }
+  .sidebar-wrapper {
+  background: #eff1ff!important;
+}
+.sidebar-footer-wrapper {
+  background: #eff1ff!important;
+}
+}
