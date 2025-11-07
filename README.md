@@ -7,6 +7,7 @@ Glacier Theme is a modern theme that supports dark mode.
 ### dark mode
 <img width="1446" height="942" alt="glacier-theme-dark-mode_photo" src="https://github.com/user-attachments/assets/f215fbdc-090b-470d-9d09-90b3a482f667" />
 
+The design is based on Horizon
 
 ---
 
