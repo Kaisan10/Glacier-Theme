@@ -10,12 +10,32 @@
   .search-menu .search-input, .search-menu-container .search-input {
     box-shadow: 0px 0px 20px 8px rgb(81 83 102 / 30%);
   }
-    .sidebar-wrapper {
-  background: #1e1f22!important;
-}
-.sidebar-footer-wrapper {
-  background: #1e1f22!important;
-}
+  .sidebar-wrapper {
+    background: #1e1f22!important;
+  }
+  .sidebar-footer-wrapper {
+    background: #1e1f22!important;
+  }
+  
+  /* バッジ系 */
+  a.badge-category__wrapper {
+    background-color: color-mix(in srgb, var(--category-badge-color) 50%, black);
+  }
+  a.badge-category__wrapper:hover {
+    filter: brightness(1.3);
+  }
+  .badge-category__wrapper .badge-category__name {
+    color: color-mix(in srgb, var(--category-badge-color) 30%, white)!important;
+  }
+  
+  .user-card .badge-section .user-badge, .user-card .badge-section .more-user-badges a {
+    background: rgb(0 0 0 / 25%)!important;
+  }
+  
+  .topic-post.topic-owner .topic-meta-data .username:after {
+    color: #000;
+    background: #6fc7ff;
+  }
 } @else {
   :root {
      --header_background: #8391ff5e!important;
@@ -29,9 +49,32 @@
     box-shadow: 0px 0px 20px 8px rgba(180, 189, 255, 0.30);
   }
   .sidebar-wrapper {
-  background: #eff1ff!important;
+    background: #eff1ff!important;
+  }
+  .sidebar-footer-wrapper {
+    background: #eff1ff!important;
+  }
+  
+  /* バッジ系 */
+  a.badge-category__wrapper {
+    background-color: color-mix(in srgb, var(--category-badge-color) 30%, white);
+  }
+  a.badge-category__wrapper:hover {
+    filter: brightness(0.9);
+  }
+  .badge-category__wrapper .badge-category__name {
+    color: color-mix(in srgb, var(--category-badge-color) 55%, black)!important;
+  }
+  
+  .user-card .badge-section .user-badge, .user-card .badge-section .more-user-badges a {
+    background: rgb(255 255 255 / 25%)!important;
+  }
+  
+  .topic-post.topic-owner .topic-meta-data .username:after {
+    color: #fff;
+    background: #0d8ddb;
+  }
 }
-.sidebar-footer-wrapper {
-  background: #eff1ff!important;
-}
+.category-status .badge-category__wrapper .badge-category__name {
+  color: var(--primary-high)!important;
 }
