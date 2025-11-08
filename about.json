@@ -5,7 +5,7 @@
   "about_url": null,
   "assets": {},
   "color_schemes": {
-    "Glacier": {
+    "glacier-light": {
       "primary": "121212",
       "secondary": "ffffff",
       "tertiary": "4e66df",
@@ -20,7 +20,7 @@
       "love": "fa6c8d",
       "tertiary-med-or-tertiary": "595bca"
     },
-    "Glacier-Dark": {
+    "glacier-dark": {
       "primary": "ffffff",
       "secondary": "121212",
       "tertiary": "304fe8",
