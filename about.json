@@ -19,6 +19,21 @@
       "success": "090",
       "love": "fa6c8d",
       "tertiary-med-or-tertiary": "595bca"
+    },
+    "Glacier-Dark": {
+      "primary": "ffffff",
+      "secondary": "121212",
+      "tertiary": "304fe8",
+      "quaternary": "973c26",
+      "header_background": "1a1a1a",
+      "header_primary": "ffffff",
+      "selected": "42444c",
+      "hover": "35363b",
+      "highlight": "ffff4d",
+      "danger": "ff2e2e",
+      "success": "090",
+      "love": "fa6c8d",
+      "tertiary-med-or-tertiary": "595bca"
     }
   },
   "modifiers": {},
