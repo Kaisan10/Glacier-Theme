@@ -37,7 +37,7 @@ Copyright (c) 2025 bac0n
 }
 
 .search-container .search-header {
-  background: var(--primary-very-low);
+  background: transparent;
   padding: 0rem 0%;
 }
 
@@ -183,10 +183,6 @@ div.ac-wrap {
 
 .spoiler-blurred {
   transition: var(--transition-normal);
-}
-
-.sidebar-wrapper .sidebar-container {
-  height: calc(105% - var(--composer-height, 0px));
 }
 
 .select-kit.single-select.dropdown-select-box.is-expanded .select-kit-collection, 
@@ -413,4 +409,16 @@ button.btn-flat.bulk-select {
 
 .welcome-banner__title {
   font-weight: 400;
+}
+
+.admin-area .sidebar-wrapper .admin-panel {
+  background-color: transparent;
+}
+
+.search-container .search-bar, .search-container .search-filters, .search-container .search-filters .search-advanced-filters, .fps-result .topic .bulk-select {
+  background: transparent;
+}
+
+.sidebar-wrapper .sidebar-sections {
+  overflow-y: scroll;
 }
