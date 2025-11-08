@@ -107,7 +107,7 @@ input[type=color],
 .select-kit.combo-box .select-kit-header, 
 .d-editor-textarea-wrapper, 
 div.ac-wrap {
-  border-radius: var(--radius-medium);
+  border-radius: var(--radius-large);
 }
   
 .custom-category-boxes:not(.above-discovery-categories-outlet) .category-box {
@@ -413,4 +413,8 @@ button.btn-flat.bulk-select {
 
 .welcome-banner__wrap {
   padding: var(--space-6);
+}
+
+.welcome-banner__title {
+  font-weight: 400;
 }
