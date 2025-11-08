@@ -1,4 +1,4 @@
-# Glacier-Theme
+# Glacier Theme
 Glacier Theme is a modern theme that supports dark mode.
 ## screenshot
 ### light mode
