@@ -34,6 +34,8 @@ Copyright (c) 2025 bac0n
   --input-border-color: var(--primary-200);
   
   --font-up-6: 2.1em;
+  
+  --main-outlet-padding-x: clamp(75px, calc(5vw + 0.05vw * 100vw / 8px), 1500px);
 }
 
 .search-container .search-header {
@@ -421,4 +423,8 @@ button.btn-flat.bulk-select {
 
 .sidebar-wrapper .sidebar-sections {
   overflow-y: scroll;
+}
+
+#create-category {
+  border-radius: var(--radius-round);
 }
