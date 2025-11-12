@@ -1,9 +1,3 @@
-/*
-MIT License
-
-Copyright (c) 2025 bac0n
-*/
-
 :root {
   --d-border-radius: 10px;
   --d-sidebar-section-link-icon-size: 0.85em;
@@ -34,8 +28,6 @@ Copyright (c) 2025 bac0n
   --input-border-color: var(--primary-200);
   
   --font-up-6: 2.1em;
-  
-  --main-outlet-padding-x: clamp(75px, calc(5vw + 0.05vw * 100vw / 8px), 1500px);
 }
 
 .search-container .search-header {
