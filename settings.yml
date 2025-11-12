@@ -1,0 +1,6 @@
+left-and-right-margins:
+  default: 100
+  type: integer
+  description:
+    en: "Left and right margins"
+    ja: "左右の余白"
