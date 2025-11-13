@@ -439,10 +439,7 @@ button.btn-flat.bulk-select {
   font-weight: 400;
 }
 
-.admin-area .sidebar-wrapper .admin-panel {
-  background-color: transparent;
-}
-
+.admin-area .sidebar-wrapper .admin-panel, 
 .search-container .search-bar,
 .search-container .search-filters,
 .search-container .search-filters .search-advanced-filters,
@@ -458,6 +455,6 @@ button.btn-flat.bulk-select {
   border-radius: var(--radius-round);
 }
 
-.sidebar-wrapper, .sidebar-footer-wrappe {
+.sidebar-wrapper, .sidebar-footer-wrapper {
   background: var(--sidebar_background);
 }
