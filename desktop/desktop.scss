@@ -1,11 +1,15 @@
 .topic-list {
+  display: block;
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
 }
 
-.topic-list-body {
+.topic-list-header {
   display: block;
+  width: 100%;
+}
+
+.topic-list-header tr {
+  display: flex;
   width: 100%;
 }
 
@@ -15,22 +19,30 @@
 }
 
 .topic-list-header .default {
-  width: calc(100% - 280px);
+  flex: 1;
 }
 
 .topic-list-header .posters {
   width: 80px;
+  flex-shrink: 0;
 }
 
 .topic-list-header .posts,
 .topic-list-header .views {
   width: 60px;
+  flex-shrink: 0;
   text-align: center;
 }
 
 .topic-list-header .activity {
   width: 80px;
+  flex-shrink: 0;
   text-align: right;
+}
+
+.topic-list-body {
+  display: block;
+  width: 100%;
 }
 
 .topic-list-item {
