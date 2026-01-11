@@ -4,6 +4,11 @@
   border-spacing: 0;
 }
 
+.topic-list-body {
+  display: block;
+  width: 100%;
+}
+
 .topic-list-header th {
   padding: 12px;
   box-sizing: border-box;
@@ -36,6 +41,7 @@
   overflow: hidden;
   background-color: #fff;
   border: var(--table-border-width) solid var(--table-border-color);
+  box-sizing: border-box;
 }
 
 .topic-list-item td {
