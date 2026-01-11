@@ -405,6 +405,10 @@ button.btn-flat.bulk-select {
 }
 .sidebar-section-link-wrapper .sidebar-section-link {
   border-radius: 0 100px 100px 0;
+  padding: calc(var(--d-sidebar-row-horizontal-padding) * 3)
+}
+.sidebar-row {
+  padding: calc(var(--d-sidebar-row-horizontal-padding) * 3)
 }
 
 .search-menu .search-input,
