@@ -2,23 +2,21 @@
 }
 
 .topic-list {
-  display: block;
+  border-collapse: separate;
+  border-spacing: 0 0.75rem;
 }
 
-.topic-list-body {
-  display: block;
-}
-
-.topic-list-item {
-  display: table;
-  width: 100%;
-  margin-bottom: 12px;
-  border-radius: 8px;
-  overflow: hidden;
-  table-layout: fixed;
-}
-
+/* 各行に角丸と背景 */
 .topic-list-item td {
-  display: table-cell;
   background-color: #fff;
+}
+
+.topic-list-item td:first-child {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.topic-list-item td:last-child {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
