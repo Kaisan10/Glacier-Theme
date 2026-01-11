@@ -1,12 +1,20 @@
 :root {
 }
 
-.topic-list {
+/* tbodyの親テーブルに設定 */
+tbody.topic-list-body {
+  display: table;
+  width: 100%;
   border-collapse: separate;
   border-spacing: 0 0.75rem;
 }
 
-/* 各行に角丸と背景 */
+/* 各行 */
+.topic-list-item {
+  border: 1px solid #e0e0e0; /* ボーダー復活 */
+}
+
+/* セルに背景と角丸 */
 .topic-list-item td {
   background-color: #fff;
 }
