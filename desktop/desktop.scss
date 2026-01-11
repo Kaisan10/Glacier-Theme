@@ -52,7 +52,7 @@
   margin-bottom: 12px;
   border-radius: 12px;
   overflow: hidden;
-  border: var(--table-border-width) solid var(--table-border-color);
+  border: var(--table-border-width) solid var(--table-border-color) !important;
   box-sizing: border-box;
   box-shadow: var(--topic-list-shadow);
   transition: all 0.3s;
