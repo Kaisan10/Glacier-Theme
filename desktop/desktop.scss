@@ -55,6 +55,12 @@
   background-color: #fff;
   border: var(--table-border-width) solid var(--table-border-color);
   box-sizing: border-box;
+  box-shadow: 0px 4px 8px 0px var(--table-border-color);
+}
+
+.topic-list-item:hover {
+  box-shadow: 0px 6px 8px 0px var(--table-border-color);
+  transform: translateY(-2px);
 }
 
 .topic-list-item td {
