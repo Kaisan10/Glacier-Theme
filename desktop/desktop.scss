@@ -1,26 +1,15 @@
-tbody.topic-list-body {
-  border-collapse: separate;
-  border-spacing: 0 1rem;
+.topic-list-item {
+  display: block;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
 }
 
 .topic-list-item td {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
+  background-color: inherit;
 }
 
-.topic-list-item td:first-child {
-  border-top-left-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
-  border-right: none;
-}
-
-.topic-list-item td:last-child {
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-  border-left: none;
-}
-
-.topic-list-item td:not(:first-child):not(:last-child) {
-  border-left: none;
-  border-right: none;
+.topic-list-item:last-child {
+  margin-bottom: 0;
 }
