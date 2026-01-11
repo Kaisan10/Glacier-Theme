@@ -4,6 +4,7 @@
   border-radius: 8px;
   overflow: hidden;
   background-color: #fff;
+  border: var(--table-border-width) solid var(--table-border-color);
 }
 
 .topic-list-item td {
