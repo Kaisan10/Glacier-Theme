@@ -336,6 +336,11 @@ a.badge-category__wrapper {
 
 .topic-list .topic-list-item-separator .topic-list-data span {
   border-radius: var(--radius-small);
+  bottom: 8px;
+}
+
+tr.topic-list-item-separator {
+    height: 16px;
 }
 
 button.btn-flat.bulk-select {
