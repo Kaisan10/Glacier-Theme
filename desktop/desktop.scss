@@ -55,6 +55,7 @@
   border: var(--table-border-width) solid var(--table-border-color);
   box-sizing: border-box;
   box-shadow: 0px 1px 8px 0px var(--table-border-color);
+  transition: all 0.3s;
 }
 
 .topic-list-item:hover {
@@ -108,4 +109,8 @@
 
 .topic-list .topic-list-header .topic-list-data, .topic-list .topic-list-item .topic-list-data {
   padding: 12px;
+}
+
+.more-topics__container .more-topics__list .topic-list-body .topic-list-item:first-child td {
+  padding-top: 12px;
 }
