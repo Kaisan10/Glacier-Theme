@@ -1,22 +1,24 @@
 :root {
 }
 
-.topic-list-item, tbody tr {
-  border: var(--table-border-width) solid var(--table-border-color);
+.topic-list {
+  display: block;
+}
+
+.topic-list-body {
+  display: block;
 }
 
 .topic-list-item {
-  display: block;
+  display: table;
+  width: 100%;
   margin-bottom: 12px;
   border-radius: 8px;
   overflow: hidden;
+  table-layout: fixed;
 }
 
 .topic-list-item td {
-  background-color: inherit;
+  display: table-cell;
+  background-color: #fff;
 }
-
-.topic-list-item:last-child {
-  margin-bottom: 0;
-}
-
