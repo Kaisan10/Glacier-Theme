@@ -29,7 +29,7 @@
 }
 
 .topic-list-item {
-  display: block;
+  display: flex;
   margin-bottom: 12px;
   border-radius: 8px;
   overflow: hidden;
@@ -38,29 +38,30 @@
 }
 
 .topic-list-item td {
-  display: inline-block;
-  vertical-align: middle;
   background-color: inherit;
   padding: 12px;
   box-sizing: border-box;
 }
 
 .topic-list-item .main-link {
-  width: calc(100% - 304px);
+  flex: 1;
 }
 
 .topic-list-item .posters {
-  width: 104px;
+  width: 80px;
+  flex-shrink: 0;
 }
 
 .topic-list-item .posts,
 .topic-list-item .views {
-  width: 84px;
+  width: 60px;
+  flex-shrink: 0;
   text-align: center;
 }
 
 .topic-list-item .activity {
-  width: 104px;
+  width: 80px;
+  flex-shrink: 0;
   text-align: right;
 }
 
