@@ -4,6 +4,7 @@
     --header_primary-low-mid: rgb(197 197 223);
     --primary-low: rgb(42 43 52);
     --sidebar_background: #1e1f22;
+    --topic-list-shadow: 0px 1px 8px 0px #00000082;
   }
   .d-header-icons .d-icon{
     color: rgb(129 127 255 / 84%);
@@ -37,6 +38,7 @@
      --header_primary-low-mid: rgb(155 153 255);
      --primary-low: rgb(225 226 240);
      --sidebar_background: #eff1ff;
+     --topic-list-shadow: 0px 1px 8px 0px #b1b1b182;
   }
   .d-header-icons .d-icon{
     color: rgb(129 127 255 / 84%);
@@ -68,3 +70,4 @@
 .category-status .badge-category__wrapper .badge-category__name {
   color: var(--primary-high)!important;
 }
+
