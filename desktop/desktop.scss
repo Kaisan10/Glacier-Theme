@@ -6,11 +6,10 @@
 }
 
 .topic-list-item {
+  display: block;
   margin-bottom: 12px;
   border-radius: 8px;
   overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .topic-list-item td {
@@ -20,3 +19,4 @@
 .topic-list-item:last-child {
   margin-bottom: 0;
 }
+
