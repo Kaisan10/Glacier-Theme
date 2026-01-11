@@ -468,3 +468,12 @@ button.btn-flat.bulk-select {
   margin: auto;
   margin-top: 2rem;
 }
+
+div.poll-outer div.poll .results .bar {
+  border-radius: 100px;
+}
+
+div.poll-outer div.poll .results .bar-back {
+  background: var(--primary-100);
+  border-radius: 100px;
+}
