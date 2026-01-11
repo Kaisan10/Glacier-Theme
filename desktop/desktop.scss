@@ -43,13 +43,14 @@
 .topic-list-body {
   display: block;
   width: 100%;
+  border-top: none;
 }
 
 .topic-list-item {
   display: flex;
   width: 100%;
   margin-bottom: 12px;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   background-color: #fff;
   border: var(--table-border-width) solid var(--table-border-color);
@@ -86,4 +87,20 @@
 
 .topic-list-item:last-child {
   margin-bottom: 0;
+}
+
+.topic-list .topic-list-header .topic-list-data, .topic-list .topic-list-item .topic-list-data {
+  margin: auto;
+}
+
+.full-width .contents .topic-list .topic-list-body .posters a:not(.latest) {
+  display: none;
+}
+
+.full-width .contents .topic-list .topic-list-body .posters a.latest {
+  margin-top: -8px;
+}
+
+.topic-list .topic-list-header .topic-list-data, .topic-list .topic-list-item .topic-list-data {
+  padding: 12px;
 }
