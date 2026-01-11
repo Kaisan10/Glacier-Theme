@@ -14,3 +14,25 @@
 .topic-list-item:last-child {
   margin-bottom: 0;
 }
+
+.topic-list {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.topic-list-data.default {
+  width: auto;
+}
+
+.topic-list-data.posters {
+  width: 80px;
+}
+
+.topic-list-data.posts,
+.topic-list-data.views {
+  width: 60px;
+}
+
+.topic-list-data.activity {
+  width: 80px;
+}
