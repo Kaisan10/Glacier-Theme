@@ -469,10 +469,10 @@ button.btn-flat.bulk-select {
 }
 
 #main-outlet {
-  width: 80%;
+  width: calc(#{$left-and-right-margins}% - 20%);
   margin: auto;
-  margin-top: 2rem;
-  max-width: 800px;
+  margin-top: 1rem;
+  max-width: calc(#{$left-and-right-margins}px * 8px);;
 }
 
 div.poll-outer div.poll .results .bar {
