@@ -469,7 +469,7 @@ button.btn-flat.bulk-select {
 }
 
 #main-outlet {
-  width: calc(#{$left-and-right-margins} - 20%);
+  width: calc(#{$left-and-right-margins} / 100 * 80%);
   margin: auto;
   margin-top: 1rem;
   max-width: calc(#{$left-and-right-margins}px * 8);
