@@ -472,7 +472,7 @@ button.btn-flat.bulk-select {
   width: calc(#{$left-and-right-margins}px - 20%);
   margin: auto;
   margin-top: 1rem;
-  max-width: calc(#{$left-and-right-margins}px * 8px);
+  max-width: calc(#{$left-and-right-margins}px * 8);
 }
 
 div.poll-outer div.poll .results .bar {
