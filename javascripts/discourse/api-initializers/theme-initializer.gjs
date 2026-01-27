@@ -1,10 +1,6 @@
 import { apiInitializer } from "discourse/lib/api";
-import { getObjectForTheme } from "discourse/lib/theme-settings-store";
 
 export default apiInitializer((api) => {
-  const themeId = api.container.lookup("service:site").theme_id;
-  const settings = getObjectForTheme(themeId);
-
   function applyCreateTopicStyle() {
     const hasDraftsMenu = document.querySelector('.navigation-controls [data-identifier="topic-drafts-menu"]');
     const createTopic = document.getElementById('create-topic');
