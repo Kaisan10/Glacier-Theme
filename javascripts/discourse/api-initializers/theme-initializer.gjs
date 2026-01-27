@@ -49,7 +49,7 @@ export default apiInitializer((api) => {
   }
 
   function handleUpdate() {
-    if (settings["sidebar_create-topic"]) {
+    if (settings.sidebar_create_topic) {
       updateSidebarControls();
     } else {
       applyCreateTopicStyle();
