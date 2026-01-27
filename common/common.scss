@@ -31,6 +31,21 @@
   --font-up-6: 2.1em;
 }
 
+::-webkit-scrollbar {
+    width: 12px;
+    background: var(--header_background) !important;
+    color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-400);
+    background-clip: content-box;
+    border: 2px solid transparent;
+    border-radius: 100px;
+    min-height: 48px;
+    transition: all 0.3s ease;
+}
+
 .search-container .search-header {
   background: transparent;
   padding: 0rem 0%;
