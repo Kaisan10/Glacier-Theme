@@ -7,3 +7,132 @@
     width: 100%;
     max-width: 100%;
 }
+
+.topic-list {
+  display: block;
+  width: 100%;
+}
+
+.topic-list-header {
+  display: block;
+  width: 100%;
+}
+
+.topic-list-header tr {
+  display: flex;
+  width: 100%;
+}
+
+.topic-list-header th {
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.topic-list-header .default {
+  flex: 1;
+}
+
+.topic-list-header .posters {
+  width: 80px;
+  flex-shrink: 0;
+}
+
+.topic-list-header .posts,
+.topic-list-header .views {
+  width: auto;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.topic-list-header .activity {
+  width: 80px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.topic-list-body {
+  display: block;
+  width: 100%;
+  border-top: none;
+}
+
+.topic-list-item {
+  display: flex;
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: var(--table-border-width) solid var(--table-border-color) !important;
+  box-sizing: border-box;
+  box-shadow: var(--topic-list-shadow);
+  transition: all 0.3s;
+}
+
+.topic-list-item:hover {
+  transform: translateY(-2px);
+}
+
+.topic-list-item td {
+  background-color: inherit;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.topic-list-item .main-link {
+  flex: 1;
+}
+
+.topic-list-item .posters {
+  width: 80px;
+  flex-shrink: 0;
+}
+
+
+.topic-list-item .posts,
+.topic-list-item .views {
+  width: 60px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.topic-list-item .activity {
+  width: 80px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.topic-list-item:last-child {
+  margin-bottom: 0;
+}
+
+.topic-list .topic-list-header .topic-list-data, .topic-list .topic-list-item .topic-list-data {
+  margin: auto;
+}
+
+.full-width .contents .topic-list .topic-list-body .posters a:not(.latest) {
+  display: none;
+}
+
+.full-width .contents .topic-list .topic-list-body .posters a.latest {
+  margin-top: -14px;
+}
+
+.topic-list .topic-list-header .topic-list-data, .topic-list .topic-list-item .topic-list-data {
+  padding: 12px;
+  margin: 0;
+  width: 100%
+}
+
+.more-topics__container .more-topics__list .topic-list-body .topic-list-item:first-child td {
+  padding-top: 12px;
+}
+
+.topic-list-item .activity {
+  width: auto;
+}
+
+a.discourse-tag.simple {
+    background: var(--primary-100);
+    padding: 0 6px;
+    border-radius: 8px;
+}
