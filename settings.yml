@@ -4,3 +4,8 @@ left-and-right-margins:
   description:
     en: "Left and right margins"
     ja: "左右の余白"
+sidebar_create-topic:
+  default: true
+  description:
+    en: "Add a button to create a new topic in the sidebar"
+    ja: "サイドバーに新規トピックを作成するボタンを追加する"
