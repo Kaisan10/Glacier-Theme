@@ -384,7 +384,11 @@ button.btn-flat.bulk-select {
 
 .user-card .card-content,
 .group-card .card-content {
-  border-radius: 6px !important;
+  border-radius: 100px !important;
+}
+
+.fk-d-menu .btn, .fk-d-menu .d-modal.json-schema-editor-modal .je-ready button, .d-modal.json-schema-editor-modal .je-ready .fk-d-menu button, .fk-d-menu .d-modal.json-schema-editor-modal .je-ready .json-editor-btn-add, .d-modal.json-schema-editor-modal .je-ready .fk-d-menu .json-editor-btn-add {
+  border-radius: var(--d-button-border-radius);
 }
 
 .user-card .badge-section .user-badge,
