@@ -1,9 +1,9 @@
 import { apiInitializer } from "discourse/lib/api";
 import { getObjectForTheme } from "discourse/lib/theme-settings-store";
 
+const settings = getObjectForTheme(32); // apiInitializerの外で！
+
 export default apiInitializer((api) => {
-  const settings = getObjectForTheme(32); // 32はあなたのテーマID
-  
   console.log('Theme initializer loaded');
   console.log('settings:', settings);
   console.log('sidebar_create_topic:', settings.sidebar_create_topic);
