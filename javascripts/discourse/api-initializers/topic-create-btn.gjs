@@ -54,7 +54,7 @@ export default apiInitializer("1.8.0", (api) => {
         ${hasDraftsMenu ? `
         <button class="btn no-text btn-icon fk-d-menu__trigger sidebar-topic-drafts-menu-trigger btn-small btn-default" aria-expanded="false" title="最新の下書きメニューを開く" data-identifier="sidebar-topic-drafts-menu" type="button" style="${draftsButtonStyle}">
           <svg class="fa d-icon d-icon-chevron-down svg-icon svg-string" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><use href="#chevron-down"></use></svg>
-          <span aria-hidden="true">&ZeroWidthSpace;</span>
+          <span aria-hidden="true"></span>
         </button>` : ''}
       </div>
     `;
