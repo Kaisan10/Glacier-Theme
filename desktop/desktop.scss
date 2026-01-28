@@ -132,3 +132,8 @@ button#sidebar-create-topic {
   justify-content: normal;
   padding-left: calc(var(--d-sidebar-row-horizontal-padding) * 3) !important;
 }
+
+#sidebar-create-topic > span.d-button-label {
+    color: var(--d-sidebar-active-color);
+    font-weight: 500;
+}
