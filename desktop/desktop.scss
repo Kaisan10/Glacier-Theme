@@ -129,4 +129,6 @@ button#sidebar-create-topic {
   padding: calc(var(--d-sidebar-row-horizontal-padding) * 3);
   height: var(--d-sidebar-row-height);
   width: calc(100% - 42px);
+  justify-content: normal;
+  padding-left: calc(var(--d-sidebar-row-horizontal-padding) * 3) !important;
 }
