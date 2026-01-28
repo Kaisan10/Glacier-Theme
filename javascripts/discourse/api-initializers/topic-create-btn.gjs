@@ -47,7 +47,7 @@ export default apiInitializer("1.8.0", (api) => {
     const draftsButtonStyle = 'border-radius: 0 100px 100px 0;'; // ドラフトボタン: 右だけ100px
     
     const controlsHTML = `
-      <div class="sidebar-navigation-controls" style="padding: 1em; position: relative;">
+      <div class="sidebar-navigation-controls" style="position: relative;">
         <button class="btn btn-icon-text btn-default" id="sidebar-create-topic" type="button" style="${createButtonStyle}">
           <svg class="fa d-icon d-icon-far-pen-to-square svg-icon svg-string" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><use href="#far-pen-to-square"></use></svg>
           <span class="d-button-label">新規トピック</span>
