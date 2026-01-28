@@ -54,7 +54,6 @@ export default apiInitializer("1.8.0", (api) => {
           <svg class="fa d-icon d-icon-chevron-down svg-icon svg-string" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><use href="#chevron-down"></use></svg>
           <span aria-hidden="true">&ZeroWidthSpace;</span>
         </button>` : ''}
-        <hr style="margin-top: 1em;">
       </div>
     `;
     
