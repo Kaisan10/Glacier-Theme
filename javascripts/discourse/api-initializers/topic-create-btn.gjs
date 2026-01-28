@@ -39,18 +39,21 @@ export default apiInitializer("1.8.0", (api) => {
     
     const hasDraftsMenu = document.querySelector('.navigation-controls [data-identifier="topic-drafts-menu"]');
     
-    const buttonStyle = hasDraftsMenu 
-      ? 'border-radius: 100px 0 0 100px; padding: 0.5em 0 0.5em 0.5em;'
-      : 'border-radius: 100px; padding: 0.5em 0.65em;';
+    // 修正: ドラフトがある場合とない場合のスタイリング
+    const createButtonStyle = hasDraftsMenu 
+      ? 'border-radius: 100px 0 0 0; padding: 0.5em 0 0.5em 0.5em;' // ドラフトあり: ラディウスなし
+      : 'border-radius: 100px 100px 100px 0; padding: 0.5em 0.65em;'; // ドラフトなし: 右だけradius 100px
+    
+    const draftsButtonStyle = 'border-radius: 0 100px 100px 0;'; // ドラフトボタン: 右だけ100px
     
     const controlsHTML = `
       <div class="sidebar-navigation-controls" style="padding: 1em;">
-        <button class="btn btn-icon-text btn-default" id="sidebar-create-topic" type="button" style="${buttonStyle}">
+        <button class="btn btn-icon-text btn-default" id="sidebar-create-topic" type="button" style="${createButtonStyle}">
           <svg class="fa d-icon d-icon-far-pen-to-square svg-icon svg-string" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><use href="#far-pen-to-square"></use></svg>
           <span class="d-button-label">新規トピック</span>
         </button>
         ${hasDraftsMenu ? `
-        <button class="btn no-text btn-icon fk-d-menu__trigger sidebar-topic-drafts-menu-trigger btn-small btn-default" aria-expanded="false" title="最新の下書きメニューを開く" data-identifier="sidebar-topic-drafts-menu" type="button" style="border-radius: 0 100px 100px 0;">
+        <button class="btn no-text btn-icon fk-d-menu__trigger sidebar-topic-drafts-menu-trigger btn-small btn-default" aria-expanded="false" title="最新の下書きメニューを開く" data-identifier="sidebar-topic-drafts-menu" type="button" style="${draftsButtonStyle}">
           <svg class="fa d-icon d-icon-chevron-down svg-icon svg-string" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><use href="#chevron-down"></use></svg>
           <span aria-hidden="true">&ZeroWidthSpace;</span>
         </button>` : ''}
@@ -59,12 +62,24 @@ export default apiInitializer("1.8.0", (api) => {
     
     sidebar.insertAdjacentHTML('afterbegin', controlsHTML);
     
+    // 新規トピックボタンのイベントリスナー
     const sidebarCreateButton = document.getElementById('sidebar-create-topic');
     if (sidebarCreateButton) {
       sidebarCreateButton.addEventListener('click', () => {
         const mainCreateButton = document.getElementById('create-topic');
         if (mainCreateButton) {
           mainCreateButton.click();
+        }
+      });
+    }
+    
+    // 修正: ドラフトボタンのイベントリスナーを追加
+    const sidebarDraftsButton = sidebar.querySelector('.sidebar-topic-drafts-menu-trigger');
+    if (sidebarDraftsButton && hasDraftsMenu) {
+      sidebarDraftsButton.addEventListener('click', () => {
+        const mainDraftsButton = document.querySelector('.navigation-controls [data-identifier="topic-drafts-menu"]');
+        if (mainDraftsButton) {
+          mainDraftsButton.click();
         }
       });
     }
