@@ -39,15 +39,15 @@ export default apiInitializer("1.8.0", (api) => {
     
     const hasDraftsMenu = document.querySelector('.navigation-controls [data-identifier="topic-drafts-menu"]');
     
-    // 修正: ドラフトがある場合とない場合のスタイリング
+    // 修正: ドラフトがある場合は全部0、ない場合は右だけ100px
     const createButtonStyle = hasDraftsMenu 
-      ? 'border-radius: 100px 0 0 0; padding: 0.5em 0 0.5em 0.5em;' // ドラフトあり: ラディウスなし
-      : 'border-radius: 100px 100px 100px 0; padding: 0.5em 0.65em;'; // ドラフトなし: 右だけradius 100px
+      ? 'border-radius: 0; padding: 0.5em 0 0.5em 0.5em;' // ドラフトあり: 全部0
+      : 'border-radius: 100px 100px 0 100px; padding: 0.5em 0.65em;'; // ドラフトなし: 右だけ100px
     
     const draftsButtonStyle = 'border-radius: 0 100px 100px 0;'; // ドラフトボタン: 右だけ100px
     
     const controlsHTML = `
-      <div class="sidebar-navigation-controls" style="padding: 1em;">
+      <div class="sidebar-navigation-controls" style="padding: 1em; position: relative;">
         <button class="btn btn-icon-text btn-default" id="sidebar-create-topic" type="button" style="${createButtonStyle}">
           <svg class="fa d-icon d-icon-far-pen-to-square svg-icon svg-string" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><use href="#far-pen-to-square"></use></svg>
           <span class="d-button-label">新規トピック</span>
@@ -73,15 +73,51 @@ export default apiInitializer("1.8.0", (api) => {
       });
     }
     
-    // 修正: ドラフトボタンのイベントリスナーを追加
+    // 修正: ドラフトボタンのカスタムトグル処理
     const sidebarDraftsButton = sidebar.querySelector('.sidebar-topic-drafts-menu-trigger');
     if (sidebarDraftsButton && hasDraftsMenu) {
-      sidebarDraftsButton.addEventListener('click', () => {
+      sidebarDraftsButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
         const mainDraftsButton = document.querySelector('.navigation-controls [data-identifier="topic-drafts-menu"]');
-        if (mainDraftsButton) {
+        if (!mainDraftsButton) return;
+        
+        const isExpanded = sidebarDraftsButton.getAttribute('aria-expanded') === 'true';
+        
+        if (isExpanded) {
+          // 既に開いている場合は閉じる
           mainDraftsButton.click();
+          sidebarDraftsButton.setAttribute('aria-expanded', 'false');
+        } else {
+          // 閉じている場合は開く
+          mainDraftsButton.click();
+          sidebarDraftsButton.setAttribute('aria-expanded', 'true');
+          
+          // メニューの位置をサイドバーのボタンに合わせる
+          setTimeout(() => {
+            const menu = document.querySelector('.fk-d-menu[data-identifier="topic-drafts-menu"]');
+            if (menu) {
+              const buttonRect = sidebarDraftsButton.getBoundingClientRect();
+              menu.style.position = 'fixed';
+              menu.style.top = `${buttonRect.bottom + 5}px`;
+              menu.style.left = `${buttonRect.left}px`;
+              menu.style.right = 'auto';
+            }
+          }, 10);
         }
       });
+      
+      // メニューが閉じられた時にaria-expandedを更新
+      const checkMenuClosed = setInterval(() => {
+        const menu = document.querySelector('.fk-d-menu[data-identifier="topic-drafts-menu"]');
+        if (!menu && sidebarDraftsButton.getAttribute('aria-expanded') === 'true') {
+          sidebarDraftsButton.setAttribute('aria-expanded', 'false');
+        }
+      }, 500);
+      
+      // クリーンアップ
+      setTimeout(() => clearInterval(checkMenuClosed), 30000);
     }
     
     // Observer を再開
