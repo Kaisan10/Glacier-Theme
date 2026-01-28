@@ -1,7 +1,12 @@
 import { apiInitializer } from "discourse/lib/api";
 
 export default apiInitializer((api) => {
+  console.log('Theme initializer loaded');
+  console.log('settings:', settings);
+  console.log('sidebar_create_topic:', settings.sidebar_create_topic);
+
   function applyCreateTopicStyle() {
+    console.log('applyCreateTopicStyle called');
     const hasDraftsMenu = document.querySelector('.navigation-controls [data-identifier="topic-drafts-menu"]');
     const createTopic = document.getElementById('create-topic');
 
@@ -17,8 +22,12 @@ export default apiInitializer((api) => {
   }
 
   function updateSidebarControls() {
+    console.log('updateSidebarControls called');
     const sidebar = document.querySelector('#d-sidebar.sidebar-container');
-    if (!sidebar) return;
+    if (!sidebar) {
+      console.log('Sidebar not found');
+      return;
+    }
 
     const existingControls = sidebar.querySelector('.sidebar-navigation-controls');
     if (existingControls) {
@@ -46,9 +55,11 @@ export default apiInitializer((api) => {
     `;
 
     sidebar.insertAdjacentHTML('afterbegin', controlsHTML);
+    console.log('Sidebar controls inserted');
   }
 
   function handleUpdate() {
+    console.log('handleUpdate called, sidebar_create_topic:', settings.sidebar_create_topic);
     if (settings.sidebar_create_topic) {
       updateSidebarControls();
     } else {
