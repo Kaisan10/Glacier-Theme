@@ -136,4 +136,5 @@ button#sidebar-create-topic {
 #sidebar-create-topic > span.d-button-label {
     color: var(--d-sidebar-active-color);
     font-weight: 500;
+    margin-left: var(--d-sidebar-section-link-prefix-margin-right);
 }
