@@ -133,6 +133,10 @@ button#sidebar-create-topic {
   padding-left: calc(var(--d-sidebar-row-horizontal-padding) * 3) !important;
 }
 
+button#sidebar-create-topic:only-child {
+  width: 100%;
+}
+
 #sidebar-create-topic > span.d-button-label {
     color: var(--d-sidebar-active-color);
     font-weight: 500;
