@@ -2,6 +2,7 @@ import { apiInitializer } from "discourse/lib/api";
 
 export default apiInitializer((api) => {
   function applyCreateTopicStyle() {
+    console.log('applyCreateTopicStyle called');
     const hasDraftsMenu = document.querySelector('.navigation-controls [data-identifier="topic-drafts-menu"]');
     const createTopic = document.getElementById('create-topic');
 
@@ -17,15 +18,24 @@ export default apiInitializer((api) => {
   }
 
   function updateSidebarControls() {
+    console.log('updateSidebarControls called');
     const sidebar = document.querySelector('#d-sidebar.sidebar-container');
-    if (!sidebar) return;
+    console.log('Sidebar element:', sidebar);
+    
+    if (!sidebar) {
+      console.log('Sidebar not found, exiting');
+      return;
+    }
 
     const existingControls = sidebar.querySelector('.sidebar-navigation-controls');
     if (existingControls) {
+      console.log('Removing existing controls');
       existingControls.remove();
     }
 
     const hasDraftsMenu = document.querySelector('.navigation-controls [data-identifier="topic-drafts-menu"]');
+    console.log('Has drafts menu:', hasDraftsMenu);
+    
     const buttonStyle = hasDraftsMenu 
       ? 'border-radius: 100px 0 0 100px; padding: 0.5em 0 0.5em 0.5em;'
       : 'border-radius: 100px; padding: 0.5em 0.65em;';
@@ -46,17 +56,25 @@ export default apiInitializer((api) => {
     `;
 
     sidebar.insertAdjacentHTML('afterbegin', controlsHTML);
+    console.log('Sidebar controls inserted successfully');
   }
 
   function handleUpdate() {
+    console.log('handleUpdate called');
+    console.log('settings object:', settings);
+    console.log('sidebar_create_topic value:', settings.sidebar_create_topic);
+    
     if (settings.sidebar_create_topic) {
+      console.log('Setting is ON, calling updateSidebarControls');
       updateSidebarControls();
     } else {
+      console.log('Setting is OFF, calling applyCreateTopicStyle');
       applyCreateTopicStyle();
     }
   }
 
   api.onPageChange(() => {
+    console.log('onPageChange triggered');
     setTimeout(handleUpdate, 100);
   });
 
