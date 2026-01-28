@@ -31,6 +31,8 @@
   --font-up-6: 2.1em;
 }
 
+/*  もうしわけない
+
 ::-webkit-scrollbar {
     width: 12px;
     background: var(--header_background) !important;
@@ -45,6 +47,8 @@
     min-height: 48px;
     transition: all 0.3s ease;
 }
+
+*/
 
 .search-container .search-header {
   background: transparent;
@@ -243,6 +247,7 @@ div.ac-wrap {
 
 .d-modal__container {
   background-color: var(--primary-50);
+  border-radius: var(--d-border-radius) var(--d-border-radius) 0 0;
 }
 
 .gif-modal .d-modal__footer img,
@@ -506,4 +511,8 @@ div.poll-outer div.poll .results .bar-back {
 
 .more-topics__container {
     max-width: 100%;
+}
+
+.more-topics__container .more-topics__list-title, .more-topics__container .more-topics__browse-more {
+  margin-top: .5rem;
 }
