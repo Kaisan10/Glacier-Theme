@@ -39,12 +39,11 @@ export default apiInitializer("1.8.0", (api) => {
     
     const hasDraftsMenu = document.querySelector('.navigation-controls [data-identifier="topic-drafts-menu"]');
     
-    // 修正: ドラフトがある場合は全部0、ない場合は右だけ100px
     const createButtonStyle = hasDraftsMenu 
-      ? 'border-radius: 0; padding: 0.5em 0 0.5em 0.5em;' // ドラフトあり: 全部0
-      : 'border-radius: 100px 100px 0 100px; padding: 0.5em 0.65em;'; // ドラフトなし: 右だけ100px
+      ? 'border-radius: 0; padding: 0.5em 0 0.5em 0.5em;'
+      : 'border-radius: 0 100px 100px 0; padding: 0.5em 0.65em;';
     
-    const draftsButtonStyle = 'border-radius: 0 100px 100px 0;'; // ドラフトボタン: 右だけ100px
+    const draftsButtonStyle = 'border-radius: 0 100px 100px 0;';
     
     const controlsHTML = `
       <div class="sidebar-navigation-controls" style="position: relative;">
