@@ -113,3 +113,9 @@
 .more-topics__container .more-topics__list .topic-list-body .topic-list-item:first-child td {
   padding-top: 12px;
 }
+
+.sidebar-navigation-controls {
+  border-bottom: 1px solid var(--d-sidebar-section-border-color);
+  margin: 0 1rem 0 0;
+  padding: 1em 0;
+}
