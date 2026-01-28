@@ -4,7 +4,7 @@ left-and-right-margins:
   description:
     en: "Left and right margins"
     ja: "左右の余白"
-sidebar_create-topic:
+sidebar_create_topic:
   default: false
   type: bool
   description:
