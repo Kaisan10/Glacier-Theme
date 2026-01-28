@@ -1,12 +1,12 @@
 import { apiInitializer } from "discourse/lib/api";
 import { getObjectForTheme } from "discourse/lib/theme-settings-store";
 
-const settings = getObjectForTheme(32); // apiInitializerの外で！
+const themeSettings = getObjectForTheme(32);
 
 export default apiInitializer((api) => {
   console.log('Theme initializer loaded');
-  console.log('settings:', settings);
-  console.log('sidebar_create_topic:', settings.sidebar_create_topic);
+  console.log('themeSettings:', themeSettings);
+  console.log('sidebar_create_topic:', themeSettings.sidebar_create_topic);
 
   function applyCreateTopicStyle() {
     console.log('applyCreateTopicStyle called');
@@ -62,8 +62,8 @@ export default apiInitializer((api) => {
   }
 
   function handleUpdate() {
-    console.log('handleUpdate called, sidebar_create_topic:', settings.sidebar_create_topic);
-    if (settings.sidebar_create_topic) {
+    console.log('handleUpdate called, sidebar_create_topic:', themeSettings.sidebar_create_topic);
+    if (themeSettings.sidebar_create_topic) {
       updateSidebarControls();
     } else {
       applyCreateTopicStyle();
