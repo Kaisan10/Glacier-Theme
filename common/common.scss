@@ -400,7 +400,7 @@ button.btn-flat.bulk-select {
 
 .user-card .card-content,
 .group-card .card-content {
-  border-radius: 100px !important;
+  border-radius: 6.6px !important;
 }
 
 .fk-d-menu .btn, .fk-d-menu .d-modal.json-schema-editor-modal .je-ready button, .d-modal.json-schema-editor-modal .je-ready .fk-d-menu button, .fk-d-menu .d-modal.json-schema-editor-modal .je-ready .json-editor-btn-add, .d-modal.json-schema-editor-modal .je-ready .fk-d-menu .json-editor-btn-add {
@@ -502,4 +502,8 @@ div.poll-outer div.poll .results .bar {
 div.poll-outer div.poll .results .bar-back {
   background: var(--primary-100);
   border-radius: 100px;
+}
+
+.more-topics__container {
+    max-width: 100%;
 }
