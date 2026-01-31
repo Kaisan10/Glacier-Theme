@@ -516,3 +516,11 @@ div.poll-outer div.poll .results .bar-back {
 .more-topics__container .more-topics__list-title, .more-topics__container .more-topics__browse-more {
   margin-top: .5rem;
 }
+
+.topic-list-data .avatar:not(.latest) {
+    display: none;
+}
+
+.topic-list .posters>a:last-of-type {
+  margin-top: -14px;
+}
