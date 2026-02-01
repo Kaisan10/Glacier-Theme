@@ -529,15 +529,8 @@ div.poll-outer div.poll .results .bar-back {
 */
 
 @media (min-width: 768px) {
-  .sidebar-container .sidebar-navigation-controls {
-    & ~ * #create-topic,
-    & ~ * .navigation-controls #create-topic {
-      display: none !important;
-    }
-  }
-  
   body:has(.sidebar-navigation-controls) {
-    .navigation-controls #create-topic {
+    .navigation-controls {
       display: none !important;
     }
   }
