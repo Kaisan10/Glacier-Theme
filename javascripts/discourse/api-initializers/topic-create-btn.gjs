@@ -1,4 +1,5 @@
 import { apiInitializer } from "discourse/lib/api";
+import { i18n } from "discourse-i18n";
 
 export default apiInitializer("1.8.0", (api) => {
   let isUpdating = false; // 無限ループ防止フラグ
@@ -20,14 +21,13 @@ export default apiInitializer("1.8.0", (api) => {
   }
   
   function updateSidebarControls() {
-    if (isUpdating) return; // 既に更新中なら何もしない
+    if (isUpdating) return;
     
     const sidebar = document.querySelector('#d-sidebar.sidebar-container');
     if (!sidebar) return;
     
-    isUpdating = true; // 更新開始
+    isUpdating = true;
     
-    // Observer を一時停止
     if (observer) {
       observer.disconnect();
     }
@@ -45,12 +45,15 @@ export default apiInitializer("1.8.0", (api) => {
     
     const draftsButtonStyle = 'border-radius: 0 100px 100px 0;';
     
+    // i18nを使ってコアの翻訳キーを取得
+    const createTopicLabel = i18n("topic.create");
+    
     const controlsHTML = `
       <div class="sidebar-navigation-controls" style="position: relative;">
         <button class="btn btn-icon-text btn-default" id="sidebar-create-topic" type="button" style="${createButtonStyle}">
           <svg class="fa d-icon d-icon-far-pen-to-square svg-icon svg-string" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><use href="#far-pen-to-square"></use></svg>
           <span class="d-button-label">
-            {{sidebar_create_topic_text}}
+            ${createTopicLabel}
           </span>
         </button>${hasDraftsMenu ? `<button class="btn no-text btn-icon fk-d-menu__trigger sidebar-topic-drafts-menu-trigger btn-default" aria-expanded="false" title="Open the Recent Drafts menu" data-identifier="sidebar-topic-drafts-menu" type="button" style="${draftsButtonStyle}">
           <svg class="fa d-icon d-icon-chevron-down svg-icon svg-string" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><use href="#chevron-down"></use></svg>
