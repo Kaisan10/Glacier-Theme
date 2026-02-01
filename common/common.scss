@@ -535,4 +535,10 @@ div.poll-outer div.poll .results .bar-back {
       display: none !important;
     }
   }
+  
+  body:has(.sidebar-navigation-controls) {
+    .navigation-controls #create-topic {
+      display: none !important;
+    }
+  }
 }
