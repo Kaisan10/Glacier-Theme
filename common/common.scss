@@ -527,3 +527,9 @@ div.poll-outer div.poll .results .bar-back {
 }
 
 */
+
+@media (min-width: 1024px) {
+  .sidebar-section-create-topic-visible .desktop-hide-when-sidebar-has-create-btn {
+    display: none;
+  }
+}
