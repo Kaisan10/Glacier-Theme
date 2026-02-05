@@ -2,7 +2,7 @@ import { apiInitializer } from "discourse/lib/api";
 import { i18n } from "discourse-i18n";
 
 export default apiInitializer("1.8.0", (api) => {
-  let isUpdating = false; // 無限ループ防止フラグ
+  let isUpdating = false;
   let observer = null;
   
   function applyCreateTopicStyle() {
@@ -18,6 +18,54 @@ export default apiInitializer("1.8.0", (api) => {
         createTopic.style.padding = '.5em .65em';
       }
     }
+  }
+  
+  // イベント委譲を使用
+  function setupSidebarButtonHandlers() {
+    // 新規トピックボタン用の委譲ハンドラ
+    document.body.addEventListener('click', (e) => {
+      const sidebarCreateButton = e.target.closest('#sidebar-create-topic');
+      if (sidebarCreateButton) {
+        e.preventDefault();
+        const mainCreateButton = document.getElementById('create-topic');
+        if (mainCreateButton) {
+          mainCreateButton.click();
+        }
+      }
+    });
+    
+    // ドラフトボタン用の委譲ハンドラ
+    document.body.addEventListener('click', (e) => {
+      const sidebarDraftsButton = e.target.closest('.sidebar-topic-drafts-menu-trigger');
+      if (sidebarDraftsButton) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const mainDraftsButton = document.querySelector('.navigation-controls [data-identifier="topic-drafts-menu"]');
+        if (!mainDraftsButton) return;
+        
+        const isExpanded = sidebarDraftsButton.getAttribute('aria-expanded') === 'true';
+        
+        if (isExpanded) {
+          mainDraftsButton.click();
+          sidebarDraftsButton.setAttribute('aria-expanded', 'false');
+        } else {
+          mainDraftsButton.click();
+          sidebarDraftsButton.setAttribute('aria-expanded', 'true');
+          
+          setTimeout(() => {
+            const menu = document.querySelector('.fk-d-menu[data-identifier="topic-drafts-menu"]');
+            if (menu) {
+              const buttonRect = sidebarDraftsButton.getBoundingClientRect();
+              menu.style.position = 'fixed';
+              menu.style.top = `${buttonRect.bottom + 5}px`;
+              menu.style.left = `${buttonRect.left}px`;
+              menu.style.right = 'auto';
+            }
+          }, 10);
+        }
+      }
+    });
   }
   
   function updateSidebarControls() {
@@ -45,7 +93,6 @@ export default apiInitializer("1.8.0", (api) => {
     
     const draftsButtonStyle = 'border-radius: 0 100px 100px 0;';
     
-    // i18nを使ってコアの翻訳キーを取得
     const createTopicLabel = i18n("topic.create");
     
     const controlsHTML = `
@@ -64,53 +111,9 @@ export default apiInitializer("1.8.0", (api) => {
     
     sidebar.insertAdjacentHTML('afterbegin', controlsHTML);
     
-    // 新規トピックボタンのイベントリスナー
-    const sidebarCreateButton = document.getElementById('sidebar-create-topic');
-    if (sidebarCreateButton) {
-      sidebarCreateButton.addEventListener('click', () => {
-        const mainCreateButton = document.getElementById('create-topic');
-        if (mainCreateButton) {
-          mainCreateButton.click();
-        }
-      });
-    }
-    
-    // 修正: ドラフトボタンのカスタムトグル処理
+    // ドラフトメニューの状態監視
     const sidebarDraftsButton = sidebar.querySelector('.sidebar-topic-drafts-menu-trigger');
     if (sidebarDraftsButton && hasDraftsMenu) {
-      sidebarDraftsButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const mainDraftsButton = document.querySelector('.navigation-controls [data-identifier="topic-drafts-menu"]');
-        if (!mainDraftsButton) return;
-        
-        const isExpanded = sidebarDraftsButton.getAttribute('aria-expanded') === 'true';
-        
-        if (isExpanded) {
-          // 既に開いている場合は閉じる
-          mainDraftsButton.click();
-          sidebarDraftsButton.setAttribute('aria-expanded', 'false');
-        } else {
-          // 閉じている場合は開く
-          mainDraftsButton.click();
-          sidebarDraftsButton.setAttribute('aria-expanded', 'true');
-          
-          // メニューの位置をサイドバーのボタンに合わせる
-          setTimeout(() => {
-            const menu = document.querySelector('.fk-d-menu[data-identifier="topic-drafts-menu"]');
-            if (menu) {
-              const buttonRect = sidebarDraftsButton.getBoundingClientRect();
-              menu.style.position = 'fixed';
-              menu.style.top = `${buttonRect.bottom + 5}px`;
-              menu.style.left = `${buttonRect.left}px`;
-              menu.style.right = 'auto';
-            }
-          }, 10);
-        }
-      });
-      
-      // メニューが閉じられた時にaria-expandedを更新
       const checkMenuClosed = setInterval(() => {
         const menu = document.querySelector('.fk-d-menu[data-identifier="topic-drafts-menu"]');
         if (!menu && sidebarDraftsButton.getAttribute('aria-expanded') === 'true') {
@@ -118,11 +121,9 @@ export default apiInitializer("1.8.0", (api) => {
         }
       }, 500);
       
-      // クリーンアップ
       setTimeout(() => clearInterval(checkMenuClosed), 30000);
     }
     
-    // Observer を再開
     setTimeout(() => {
       if (observer) {
         const targetNode = document.body;
@@ -131,12 +132,12 @@ export default apiInitializer("1.8.0", (api) => {
           subtree: true
         });
       }
-      isUpdating = false; // 更新完了
+      isUpdating = false;
     }, 100);
   }
   
   function handleUpdate() {
-    if (isUpdating) return; // 既に更新中なら何もしない
+    if (isUpdating) return;
     
     if (settings.sidebar_create_topic) {
       updateSidebarControls();
@@ -145,16 +146,17 @@ export default apiInitializer("1.8.0", (api) => {
     applyCreateTopicStyle();
   }
   
+  // 初期化時に一度だけイベントハンドラを設定
+  setupSidebarButtonHandlers();
+  
   api.onPageChange(() => {
     setTimeout(handleUpdate, 100);
   });
   
   setTimeout(handleUpdate, 500);
   
-  // MutationObserver の設定
   observer = new MutationObserver(() => {
     if (!isUpdating) {
-      // navigation-controls または create-topic が変更された時のみ
       const hasCreateButton = document.getElementById('create-topic');
       const hasSidebar = document.querySelector('#d-sidebar.sidebar-container');
       
