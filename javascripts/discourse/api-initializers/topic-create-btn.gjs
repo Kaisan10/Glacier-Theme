@@ -44,9 +44,9 @@ export default apiInitializer("1.8.0", (api) => {
           }
         }
       }
-    }, true); // キャプチャフェーズで捕捉
+    }, true);
     
-    // ドラフトボタン用の委譲ハンドラ
+    // ドラフトボタン用の委譲ハンドラ（改善版）
     document.body.addEventListener('click', (e) => {
       const sidebarDraftsButton = e.target.closest('.sidebar-topic-drafts-menu-trigger');
       if (sidebarDraftsButton) {
@@ -54,30 +54,47 @@ export default apiInitializer("1.8.0", (api) => {
         e.stopPropagation();
         
         const mainDraftsButton = document.querySelector('.navigation-controls [data-identifier="topic-drafts-menu"]');
-        if (!mainDraftsButton) return;
-        
         const isExpanded = sidebarDraftsButton.getAttribute('aria-expanded') === 'true';
         
         if (isExpanded) {
-          mainDraftsButton.click();
+          // メニューを閉じる
+          if (mainDraftsButton) {
+            mainDraftsButton.click();
+          }
           sidebarDraftsButton.setAttribute('aria-expanded', 'false');
         } else {
-          mainDraftsButton.click();
+          // メニューを開く
+          if (mainDraftsButton) {
+            // 元のボタンが存在する場合
+            mainDraftsButton.click();
+          } else {
+            // 元のボタンが存在しない場合は、menu serviceを直接使う
+            const menu = api.container.lookup('service:menu');
+            if (menu) {
+              menu.show(sidebarDraftsButton, {
+                identifier: 'topic-drafts-menu',
+                component: 'topic-drafts-menu',
+                placement: 'bottom-start',
+                offset: { mainAxis: 5, crossAxis: 0 }
+              });
+            }
+          }
+          
           sidebarDraftsButton.setAttribute('aria-expanded', 'true');
           
           setTimeout(() => {
-            const menu = document.querySelector('.fk-d-menu[data-identifier="topic-drafts-menu"]');
-            if (menu) {
+            const menuElement = document.querySelector('.fk-d-menu[data-identifier="topic-drafts-menu"]');
+            if (menuElement) {
               const buttonRect = sidebarDraftsButton.getBoundingClientRect();
-              menu.style.position = 'fixed';
-              menu.style.top = `${buttonRect.bottom + 5}px`;
-              menu.style.left = `${buttonRect.left}px`;
-              menu.style.right = 'auto';
+              menuElement.style.position = 'fixed';
+              menuElement.style.top = `${buttonRect.bottom + 5}px`;
+              menuElement.style.left = `${buttonRect.left}px`;
+              menuElement.style.right = 'auto';
             }
           }, 10);
         }
       }
-    }, true); // キャプチャフェーズで捕捉
+    }, true);
   }
   
   function updateSidebarControls() {
@@ -97,7 +114,8 @@ export default apiInitializer("1.8.0", (api) => {
       existingControls.remove();
     }
     
-    const hasDraftsMenu = document.querySelector('.navigation-controls [data-identifier="topic-drafts-menu"]');
+    // ドラフトメニューが存在するかチェック（常に表示する）
+    const hasDraftsMenu = true; // 常にドラフトボタンを表示
     
     const createButtonStyle = hasDraftsMenu 
       ? 'border-radius: 0; padding: 0.5em 0 0.5em 0.5em;'
@@ -114,10 +132,10 @@ export default apiInitializer("1.8.0", (api) => {
           <span class="d-button-label">
             ${createTopicLabel}
           </span>
-        </button>${hasDraftsMenu ? `<button class="btn no-text btn-icon fk-d-menu__trigger sidebar-topic-drafts-menu-trigger btn-default" aria-expanded="false" title="Open the Recent Drafts menu" data-identifier="sidebar-topic-drafts-menu" type="button" style="${draftsButtonStyle}">
+        </button><button class="btn no-text btn-icon fk-d-menu__trigger sidebar-topic-drafts-menu-trigger btn-default" aria-expanded="false" title="Open the Recent Drafts menu" data-identifier="sidebar-topic-drafts-menu" type="button" style="${draftsButtonStyle}">
           <svg class="fa d-icon d-icon-chevron-down svg-icon svg-string" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><use href="#chevron-down"></use></svg>
           <span aria-hidden="true"></span>
-        </button>` : ''}
+        </button>
       </div>
     `;
     
@@ -125,10 +143,10 @@ export default apiInitializer("1.8.0", (api) => {
     
     // ドラフトメニューの状態監視
     const sidebarDraftsButton = sidebar.querySelector('.sidebar-topic-drafts-menu-trigger');
-    if (sidebarDraftsButton && hasDraftsMenu) {
+    if (sidebarDraftsButton) {
       const checkMenuClosed = setInterval(() => {
-        const menu = document.querySelector('.fk-d-menu[data-identifier="topic-drafts-menu"]');
-        if (!menu && sidebarDraftsButton.getAttribute('aria-expanded') === 'true') {
+        const menuElement = document.querySelector('.fk-d-menu[data-identifier="topic-drafts-menu"]');
+        if (!menuElement && sidebarDraftsButton.getAttribute('aria-expanded') === 'true') {
           sidebarDraftsButton.setAttribute('aria-expanded', 'false');
         }
       }, 500);
