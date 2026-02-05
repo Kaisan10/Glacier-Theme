@@ -20,19 +20,31 @@ export default apiInitializer("1.8.0", (api) => {
     }
   }
   
-  // イベント委譲を使用
+  // イベント委譲を使用（改善版）
   function setupSidebarButtonHandlers() {
     // 新規トピックボタン用の委譲ハンドラ
     document.body.addEventListener('click', (e) => {
       const sidebarCreateButton = e.target.closest('#sidebar-create-topic');
       if (sidebarCreateButton) {
         e.preventDefault();
-        const mainCreateButton = document.getElementById('create-topic');
-        if (mainCreateButton) {
-          mainCreateButton.click();
+        e.stopPropagation();
+        
+        // より確実な方法：Discourseのルーターを使用
+        const composer = api.container.lookup('controller:composer');
+        if (composer) {
+          composer.open({
+            action: 'createTopic',
+            draftKey: 'new_topic'
+          });
+        } else {
+          // フォールバック
+          const mainCreateButton = document.getElementById('create-topic');
+          if (mainCreateButton) {
+            mainCreateButton.click();
+          }
         }
       }
-    });
+    }, true); // キャプチャフェーズで捕捉
     
     // ドラフトボタン用の委譲ハンドラ
     document.body.addEventListener('click', (e) => {
@@ -65,7 +77,7 @@ export default apiInitializer("1.8.0", (api) => {
           }, 10);
         }
       }
-    });
+    }, true); // キャプチャフェーズで捕捉
   }
   
   function updateSidebarControls() {
