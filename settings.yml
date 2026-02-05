@@ -10,10 +10,3 @@ sidebar_create_topic:
   description:
     en: "Add a button to create a new topic in the sidebar"
     ja: "サイドバーに新規トピックを作成するボタンを追加する"
-sidebar_create_topic_text:
-  default: New Topic
-  type: string
-  description:
-    en: "Text on the New Topic button in the sidebar"
-    zh_CN: "侧边栏中“新建主题”按钮的文字"
-    ja: "サイドバーの新規トピックボタンの文字"
