@@ -541,3 +541,15 @@ div.poll-outer div.poll .results .bar-back {
     }
   }
 }
+
+.docker-manager .progress-bar {
+  border-radius: 100px;
+  overflow: hidden;
+}
+.docker-manager .console-logs {
+  border-radius: var(--radius-small);
+}
+
+.btn, .d-modal.json-schema-editor-modal .je-ready button, .d-modal.json-schema-editor-modal .je-ready .json-editor-btn-add {
+    border-radius: var(--radius-small);
+}
