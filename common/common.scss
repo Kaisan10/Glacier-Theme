@@ -151,6 +151,8 @@ div.ac-wrap {
 .sidebar-section-link-wrapper.dropdown-menu__item .sidebar-section-link,
 .sidebar-section-link-wrapper .dropdown-menu__item .sidebar-section-link {
   border-radius: var(--radius-small);
+  padding: 0 0.5rem;
+  height: 2.2rem;
 }
 
 .dropdown-menu__divider {
@@ -159,6 +161,10 @@ div.ac-wrap {
 
 .menu-panel.drop-down {
   border: var(--border-dark);
+}
+
+.fk-d-menu.sidebar-more-section-content.-animated.-expanded {
+  width: 15.4rem;
 }
 
 .chat-message-creator__search-input {
@@ -374,9 +380,9 @@ button.btn-flat.bulk-select {
 }
 
 .meta {
-  width: auto;
-  margin: var(--spacing-large);
-  border-radius: var(--radius-medium);
+    margin: var(--spacing-large);
+    border-radius: var(--radius-medium);
+    width: calc(100% - var(--spacing-large) * 2) !important;
 }
 
 .dropdown-menu__item .btn,
