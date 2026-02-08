@@ -29,7 +29,7 @@
 
 .topic-list-header .posts,
 .topic-list-header .views {
-  width: auto;
+  width: 60px;
   flex-shrink: 0;
   text-align: center;
 }
@@ -108,6 +108,11 @@
 
 .topic-list .topic-list-header .topic-list-data, .topic-list .topic-list-item .topic-list-data {
   padding: 12px;
+  text-align: center;
+}
+
+th.topic-list-data:not(:first-child) {
+  text-align: center;
 }
 
 .more-topics__container .more-topics__list .topic-list-body .topic-list-item:first-child td {
