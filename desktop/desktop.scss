@@ -146,3 +146,8 @@ button#sidebar-create-topic:only-child {
     font-weight: 500;
     margin-left: var(--d-sidebar-section-link-prefix-margin-right);
 }
+
+
+.meta {
+    width: calc(100% - var(--spacing-large) * 2) !important;
+}
