@@ -12,7 +12,7 @@ export default apiInitializer("1.8.0", (api) => {
     if (createTopic) {
       if (hasDraftsMenu) {
         createTopic.style.borderRadius = '100px 0 0 100px';
-        createTopic.style.padding = '.5em 0 .5em .5em';
+        createTopic.style.padding = '.5em';
       } else {
         createTopic.style.borderRadius = '100px';
         createTopic.style.padding = '.5em .65em';
