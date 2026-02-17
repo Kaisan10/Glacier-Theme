@@ -147,7 +147,13 @@ button#sidebar-create-topic:only-child {
     margin-left: var(--d-sidebar-section-link-prefix-margin-right);
 }
 
-
 .meta {
     width: calc(100% - var(--spacing-large) * 2) !important;
+}
+
+#main-outlet {
+  width: calc(100% - #{$left-and-right-margins} / 100 * 20%);
+  margin: auto;
+  margin-top: 1rem;
+  max-width: calc(800px + (100 - #{$left-and-right-margins}) * 10px);
 }
