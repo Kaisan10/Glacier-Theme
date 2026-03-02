@@ -413,7 +413,7 @@ button.btn-flat.bulk-select {
 }
 
 .fk-d-menu .btn, .fk-d-menu .d-modal.json-schema-editor-modal .je-ready button, .d-modal.json-schema-editor-modal .je-ready .fk-d-menu button, .fk-d-menu .d-modal.json-schema-editor-modal .je-ready .json-editor-btn-add, .d-modal.json-schema-editor-modal .je-ready .fk-d-menu .json-editor-btn-add {
-  border-radius: var(--d-button-border-radius);
+  border-radius: 0.5em;
 }
 
 .user-card .badge-section .user-badge,
@@ -544,3 +544,20 @@ div.poll-outer div.poll .results .bar-back {
 .btn, .d-modal.json-schema-editor-modal .je-ready button, .d-modal.json-schema-editor-modal .je-ready .json-editor-btn-add {
     border-radius: var(--radius-small);
 }
+
+.sidebar-section-wrapper .sidebar-section-header-wrapper:focus-within {
+    background: transparent;
+}
+
+media="(min-width: 40rem)" {
+    .has-full-page-chat .full-page-chat {
+        border-left: none;
+        border-right: none;
+    }
+}
+
+.search-menu.welcome-banner__search-menu {
+    margin-top: 1.4rem;
+}
+
+
