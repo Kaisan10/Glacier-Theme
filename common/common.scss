@@ -537,6 +537,7 @@ div.poll-outer div.poll .results .bar-back {
   border-radius: 100px;
   overflow: hidden;
 }
+
 .docker-manager .console-logs {
   border-radius: var(--radius-small);
 }
@@ -549,7 +550,7 @@ div.poll-outer div.poll .results .bar-back {
     background: transparent;
 }
 
-media="(min-width: 40rem)" {
+@media (min-width: 40rem) {
     .has-full-page-chat .full-page-chat {
         border-left: none;
         border-right: none;
