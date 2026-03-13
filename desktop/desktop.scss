@@ -157,3 +157,7 @@ button#sidebar-create-topic:only-child {
   margin-top: 1rem;
   max-width: calc(800px + (100 - #{$left-and-right-margins}) * 10px);
 }
+
+.wrap {
+  padding: 0;
+}
