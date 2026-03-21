@@ -161,3 +161,30 @@ button#sidebar-create-topic:only-child {
 .wrap {
   padding: 0;
 }
+
+.nested-view__floating-actions {
+    background: color-mix(in srgb, var(--primary-900) 20%, #ffffff00 80%);
+    padding: 0.5rem;
+    border-radius: var(--radius-small);
+    backdrop-filter: blur(12px);
+    bottom: 1em;
+}
+
+.nested-view__floating-reply {
+  padding: .5em .65em;
+  height: stretch;
+}
+
+.nested-post.--depth-0 {
+  pading-bottom: 1.75rem;
+}
+
+.nested-post__menu .post-menu-area > .post-action-menu__reply > .d-button-label {
+  margin-left: 8px;
+}
+
+.nested-sort-selector {
+  background: var(--primary-50);
+  padding: 0.5rem;
+  border-radius: var(--radius-small);
+}
