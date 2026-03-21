@@ -170,7 +170,7 @@ button#sidebar-create-topic:only-child {
     bottom: 1em;
 }
 
-.nested-view__floating-reply {
+.nested-view__floating-actions > button {
   padding: .5em .65em;
   height: stretch;
 }
