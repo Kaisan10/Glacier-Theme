@@ -175,6 +175,11 @@ button#sidebar-create-topic:only-child {
   height: stretch;
 }
 
+.nested-view__floating-actions > div > button {
+  padding: .5em .65em;
+  height: stretch;
+}
+
 .nested-post.--depth-0 {
   pading-bottom: 1.75rem;
 }
