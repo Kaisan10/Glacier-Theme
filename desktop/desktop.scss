@@ -162,6 +162,12 @@ button#sidebar-create-topic:only-child {
   padding: 0;
 }
 
+.dropdown-menu {
+  padding: 0;
+}
+
+/* nest */
+
 .nested-view__floating-actions {
     background: color-mix(in srgb, var(--primary-900) 20%, #ffffff00 80%);
     padding: 0.5rem;
