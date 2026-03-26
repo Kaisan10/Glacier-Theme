@@ -171,11 +171,12 @@ button#sidebar-create-topic:only-child {
   align-items: normal;
 }
 
-.is-online::after::not(.chat-user-avatar__container) {
+.is-online:not(.chat-user-avatar__container)::after {
+  content: "";
+  display: block;
   width: 10px;
   height: 10px;
   background: var(--success);
-  content: "";
   top: 10px;
   right: 10px;
   position: relative;
@@ -187,7 +188,6 @@ button#sidebar-create-topic:only-child {
   padding: 0;
   box-shadow: none;
 }
-
 /* nest */
 
 .nested-view__floating-actions {
