@@ -171,7 +171,7 @@ button#sidebar-create-topic:only-child {
   align-items: normal;
 }
 
-.c-navbar .is-online > .chat-user-avatar__container::after , .sidebar-section-link-wrapper .sidebar-section-link-prefix.active .prefix-image{
+.c-navbar .is-online > .chat-user-avatar__container::after{
   content: "";
   display: block;
   width: 10px;
