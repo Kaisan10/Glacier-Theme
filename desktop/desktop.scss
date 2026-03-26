@@ -184,7 +184,7 @@ button#sidebar-create-topic:only-child {
   border: solid 2px var(--secondary);
 }
 
-.sidebar-section-link-prefix.image .active::after {
+.sidebar-section-link-prefix.image.active::after {
   content: "";
   display: block;
   width: 10px;
