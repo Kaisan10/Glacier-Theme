@@ -171,7 +171,20 @@ button#sidebar-create-topic:only-child {
   align-items: normal;
 }
 
-.c-navbar .is-online > .chat-user-avatar__container::after{
+.c-navbar .is-online > .chat-user-avatar__container::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: var(--success);
+  position: absolute;
+  top: 15px;
+  right: -5px;
+  border-radius: 100%;
+  border: solid 2px var(--secondary);
+}
+
+.prefix-image::after {
   content: "";
   display: block;
   width: 10px;
@@ -190,6 +203,10 @@ button#sidebar-create-topic:only-child {
 
 .chat-user-avatar.is-online .avatar {
   padding: 0;
+  box-shadow: none;
+}
+
+.sidebar-section-link-wrapper .sidebar-section-link-prefix.active .prefix-image {
   box-shadow: none;
 }
 
