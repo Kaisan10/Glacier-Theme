@@ -564,3 +564,15 @@ div.poll-outer div.poll .results .bar-back {
 a.latest.single {
     margin-top: -12px;
 }
+
+.topic-list-data > a:not(.latest) {
+    display: none;
+}
+
+a.latest {
+    margin-top: -12px;
+}
+
+.topic-list-data > a:not(.latest, .post-activity, .badge-posts) {
+    display: none;
+}
