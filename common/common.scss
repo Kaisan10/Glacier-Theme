@@ -77,8 +77,8 @@
   border-radius: var(--radius-small);
 }
 
-.full-width .contents .topic-list .topic-list-body .topic-list-item {
-  transition: var(--transition-smooth);
+.topic-list-item:hover, .latest-topic-list-item:hover {
+  background: var(--secondary-very-high);
 }
 
 .d-header {
