@@ -55,12 +55,6 @@
   padding: 0rem 0%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .discourse-no-touch .powered-by-discourse:hover {
-    background: none;
-  }
-}
-
 .emoji-picker__section-btn .emoji {
   transition: var(--transition-ease-out);
 }
